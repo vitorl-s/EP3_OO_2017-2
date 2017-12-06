@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
-  def index
+  def home
   end
-  def Cardapio
+  def cardapio
   end
-  def Entre
+  def entrar
+  end
+  def cadastro
   end
 end
