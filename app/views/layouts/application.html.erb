@@ -10,6 +10,16 @@
     </nav>
     </p>
 
+    <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% end %>
+      </p>
+
+
+
     <title>Ep3</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -22,8 +32,8 @@
       <p></p>
       <p class="lead">
         <%= link_to "Cardápio", cardapio1_path, class: 'btn btn-primary btn-lg' %>
-        <%= link_to "Entrar", entrar_path, class: 'btn btn-primary btn-lg' %>
-        <%= link_to "Cadastrar", cadastro_path, class: 'btn btn-primary btn-lg'%>
+        <%= link_to "Entrar", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to "Cadastrar", new_user_registration_path, class: 'btn btn-primary btn-lg'%>
       </p>
     </div>
   </head>

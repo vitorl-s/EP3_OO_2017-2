@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'entrar/login'
-
   get 'home' => 'home#home'
   get 'cardapio1' => 'home#cardapio1'
   get 'entrar' => 'home#entrar'
