@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <nav class="navbar navbar-light bg-faded">
+      <%= link_to "Home" , home_path , class: 'nav-link' %>
+    </nav>
+
+    <nav class="navbar navbar-light bg-faded">
+      <%= link_to "Fale conosco" , fale_conosco_path , class: 'nav-link' %>
+    </nav>
+    </p>
+
     <title>Ep3</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</nav>
+  </nav>
         <div class="jumbotron">
       <h1 class="display-3">Gregolisco!</h1>
       <p class="lead">Confira o nosso cardápio e faça seu pedido!</p>
       <hr class="my-4">
       <p></p>
       <p class="lead">
-        <%= link_to "Home", home_path, class: 'btn btn-primary btn-lg' %>
-        <%= link_to "Cardápio", cardapio_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to "Cardápio", cardapio1_path, class: 'btn btn-primary btn-lg' %>
         <%= link_to "Entrar", entrar_path, class: 'btn btn-primary btn-lg' %>
         <%= link_to "Cadastrar", cadastro_path, class: 'btn btn-primary btn-lg'%>
       </p>
@@ -21,7 +29,8 @@
   </head>
 
   <body>
-
+    <p class= "notice"><%=notice %></p>
+    <p class = "alert"> <%= alert %> </p>
     <%= yield %>
 
   </body>

@@ -1,0 +1,27 @@
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+
+    <h1> Bem vindo(a) ao nosso cardápio !</h1>
+    <br>
+    <h3>Escolha a sua refeição desejada e faça o login para fazer sua compra! </h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <% @cardapio.each do |cardapio| %>
+      <div class = "card">
+        <div class = "card-header"> <%= cardapio.nome%>  <h5> Preço(R$) </h5> <%= cardapio.preco%> </div>
+        <div class = "card-block">
+          <%= image_tag cardapio.link_imagem %>
+        </div>
+      </div>
+    <% end %>
+
+    </body>
+
+</html>

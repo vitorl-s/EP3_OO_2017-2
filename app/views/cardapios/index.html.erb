@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cardapio</h1>
+
+<table class = "table table-striped">
+  <thead class = "thead thead-default">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descricao</th>
+      <th>Preco</th>
+      <th>Link da imagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cardapios.each do |cardapio| %>
+      <tr>
+        <td><%= cardapio.nome %></td>
+        <td><%= cardapio.descricao %></td>
+        <td><%= cardapio.preco %></td>
+        <td><%= image_tag cardapio.link_imagem %></td>
+        <td><%= link_to 'Show', cardapio %></td>
+        <td><%= link_to 'Edit', edit_cardapio_path(cardapio) %></td>
+        <td><%= link_to 'Destroy', cardapio, method: :delete, data: { confirm: 'Voce tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cardapio', new_cardapio_path %>

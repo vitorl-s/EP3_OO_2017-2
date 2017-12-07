@@ -1,54 +1,16 @@
 <html>
-  
+
   <head>
-  
+
     <title>Ep3</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-<ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home </a>
-      </li>
-      <li class="nav-link">
-        <a class="nav-link " href="#">Menu</a>
-      </li>
-    </ul>
-
-    <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Home</a>
-    </nav>
-
-    <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Menu</a>
-    </nav>
-  </p>
-</div>
-</nav>
-
   </head>
 
   <body>
-
-        <form>
-  </div>
-  <div class="form-group">
-    <label for="exampleTextarea">Descricao do produto</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">Entre com a foto do produto</label>
-    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-    <small id="fileHelp" class="form-text text-muted">This.</small>
-  </div>
-  </fieldset>
-  <button type="Confirmar" class="btn btn-primary">Confirmar</button>
-</form>
-    
     <%= yield %>
-
   </body>
 
 </html>

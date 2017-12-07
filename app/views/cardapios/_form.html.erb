@@ -1,0 +1,38 @@
+<%= form_with(model: cardapio, local: true) do |form| %>
+  <% if cardapio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cardapio.errors.count, "erro") %> ocorreram e portanto,o cardapio não pode ser salvo:</h2>
+
+      <ul>
+      <% cardapio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome , class: 'form-control-label' %>
+    <%= form.text_field :nome, id: :cardapio_nome , class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao, class: 'form-control-label' %>
+    <%= form.text_area :descricao, id: :cardapio_descricao,class: 'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :preco, class: 'form-control-label' %>
+    <%= form.text_field :preco, id: :cardapio_preco , class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_imagem , class: 'form-control-label' %>
+    <%= form.text_field :link_imagem, id: :cardapio_link_imagem , class: 'form-control' %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
