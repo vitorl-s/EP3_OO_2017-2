@@ -2,15 +2,18 @@
 <html>
   <head>
     <ul>
- <li><a href="home">Home</a></li>
- <li><a href="fale_conosco">Fale conosco</a></li>
- <li><a href="contact.asp">Contact</a></li>
+      <li><a href="home">Home</a></li>
+      <li><a href="fale_conosco">Fale conosco</a></li>
 
-
-    <br>
+      <% if user_signed_in?
+      if current_user.email == 'vitor@gmail.com'%>
+      <li><a href="cardapios">Cadastrar Produto</a></li>
+    <% end %>
+    <% end %>
+      <br>
     </ul>
-    <br>
 
+    <br>
     <p class="navbar-text pull-right">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
@@ -20,15 +23,14 @@
       </p>
 
     <title>Ep3</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </nav>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
         <div class="jumbotron">
       <h1 class="display-3">Gregolisco!</h1>
       <p class="lead">Confira o nosso cardápio e faça seu pedido!</p>
-      <hr class="my-4">
-      <p></p>
+      
       <p class="lead">
         <%= link_to "Cardápio", cardapio1_path, class: 'btn btn-primary btn-lg' %>
         <%= link_to "Entrar", new_user_session_path, class: 'btn btn-primary btn-lg' %>
