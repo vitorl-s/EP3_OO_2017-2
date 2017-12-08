@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <nav class="navbar navbar-light bg-faded">
-      <%= link_to "Home" , home_path , class: 'nav-link' %>
-    </nav>
+    <ul>
+ <li><a href="home">Home</a></li>
+ <li><a href="fale_conosco">Fale conosco</a></li>
+ <li><a href="contact.asp">Contact</a></li>
 
-    <nav class="navbar navbar-light bg-faded">
-      <%= link_to "Fale conosco" , fale_conosco_path , class: 'nav-link' %>
-    </nav>
-    </p>
+
+    <br>
+    </ul>
+    <br>
 
     <p class="navbar-text pull-right">
         <% if user_signed_in? %>
@@ -17,8 +18,6 @@
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
         <% end %>
       </p>
-
-
 
     <title>Ep3</title>
     <%= csrf_meta_tags %>
