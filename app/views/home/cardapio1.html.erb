@@ -5,20 +5,60 @@
   </head>
 
   <body>
-
+    <div align="center">
     <h3>  Bem vindo(a) ao nosso cardápio !</h3>
-    <h3>  Escolha as refeições desejadas e faça o login para fazer sua compra! </h3>
+    <h3>  Escolha as refeições desejadas e faça o login para fazer sua compra! </h3></div>
     <br>
-
     <% @cardapio.each do |cardapio| %>
-      <div class = "card">
-        <div class = "card-header"> <%= cardapio.nome%>  <h5> Preço(R$) </h5> <%= cardapio.preco%> </div>
-        <div class = "card-block">
-          <%= image_tag cardapio.link_imagem %>
-        </div>
-      </div>
-    <% end %>
+    <div class="container">
+<table id="cart" class="table table-hover table-condensed">
+          <thead>
+          <tr>
+            <th style="width:50%">Produto</th>
+            <th style="width:10%">Preço(R$)</th>
+            <th style="width:8%">Quantidade</th>
+            <th style="width:22%" class="text-center">Subtotal</th>
+            <th style="width:10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs"><img src=<%=cardapio.link_imagem %> alt="..." class="img-responsive"></div>
+                <div class="col-sm-11">
+                  <br>
+                  <div align="left">
+                  <h4><%=cardapio.nome%></h4>
+                  <p><%=cardapio.descricao%></p>
+                </div>
+                </div>
+              </div>
+            </td>
+            <td data-th="Preco"> <%=cardapio.preco%></td>
+            <td data-th="Quantidade">
+              <input type="number" class="form-control text-center" value= "1">
+            </td>
+            <td data-th="Subtotal" class="text-center"> <%=cardapio.preco %></td>
+            <td class="actions" data-th="">
 
+
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="visible-xs">
+          </tr>
+          <tr>
+            <td colspan="2" class="hidden-xs"></td>
+            <td class="hidden-xs text-center"><strong>Total R$</strong></td>
+            <td><a href="#" class="btn btn-success btn-block">Finalizar compra <i class="fa fa-angle-right"></i></a></td>
+          </tr>
+        </tfoot>
+      </table>
+</div>
+  <% end %>
+  
     </body>
 
 </html>

@@ -7,9 +7,9 @@
 
       <% if user_signed_in?
       if current_user.email == 'vitor@gmail.com' || current_user.email == 'lclaudio.tl@gmail.com'%>
-      
+
       <li><a href="cardapios">Cadastrar Produto</a></li>
- 
+
     <% end %>
     <% end %>
       <br>
@@ -32,7 +32,7 @@
         <div class="jumbotron">
       <h1 class="display-3">Gregolisco!</h1>
       <p class="lead">Confira o nosso cardápio e faça seu pedido!</p>
-      
+
       <p class="lead">
         <%= link_to "Cardápio", cardapio1_path, class: 'btn btn-primary btn-lg' %>
         <%= link_to "Entrar", new_user_session_path, class: 'btn btn-primary btn-lg' %>
@@ -42,8 +42,8 @@
   </head>
 
   <body>
-    <p class= "notice"><%=notice %></p>
-    <p class = "alert"> <%= alert %> </p>
+    <p class= " notice"><%=notice %></p>
+    <p class = " alert"> <%= alert %> </p>
     <%= yield %>
 
   </body>
