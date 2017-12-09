@@ -6,8 +6,10 @@
       <li><a href="fale_conosco">Fale conosco</a></li>
 
       <% if user_signed_in?
-      if current_user.email == 'vitor@gmail.com'%>
+      if current_user.email == 'vitor@gmail.com' || current_user.email == 'lclaudio.tl@gmail.com'%>
+      
       <li><a href="cardapios">Cadastrar Produto</a></li>
+ 
     <% end %>
     <% end %>
       <br>
