@@ -1,13 +1,13 @@
-
 # Instalando o projeto
 
-  Aṕos clonar o projeto através do comando:
+  Aṕos clonar o projeto através do comando:  
 
     git clone
 
-  Deve-se executar os seguintes comandos:
-    rake db:migrate  
-    rails server
+  Deve-se executar os seguintes comandos:  
+    
+    rake db:migrate    
+    rails server  
 
 ## Virando administrador   
 
