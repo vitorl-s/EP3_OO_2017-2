@@ -10,55 +10,124 @@
     <h3>  Escolha as refeições desejadas e faça o login para fazer sua compra! </h3></div>
     <br>
     <% @cardapio.each do |cardapio| %>
-    <div class="container">
-<table id="cart" class="table table-hover table-condensed">
-          <thead>
-          <tr>
-            <th style="width:50%">Produto</th>
-            <th style="width:10%">Preço(R$)</th>
-            <th style="width:8%">Quantidade</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-            <th style="width:10%"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-th="Product">
-              <div class="row">
-                <div class="col-sm-2 hidden-xs"><img src=<%=cardapio.link_imagem %> alt="..." class="img-responsive"></div>
-                <div class="col-sm-11">
-                  <br>
-                  <div align="left">
-                  <h4><%=cardapio.nome%></h4>
-                  <p><%=cardapio.descricao%></p>
-                </div>
-                </div>
-              </div>
-            </td>
-            <td data-th="Preco"> <%=cardapio.preco%></td>
-            <td data-th="Quantidade">
-              <input type="number" class="form-control text-center" value= "1">
-            </td>
-            <td data-th="Subtotal" class="text-center"> <%=cardapio.preco %></td>
-            <td class="actions" data-th="">
+
+</div>
 
 
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr class="visible-xs">
-          </tr>
-          <tr>
-            <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center"><strong>Total R$</strong></td>
-            <td><a href="#" class="btn btn-success btn-block">Finalizar compra <i class="fa fa-angle-right"></i></a></td>
-          </tr>
-        </tfoot>
-      </table>
+<div class="shopping-cart">
+
+  <div class="product">
+    <div class="product-image">
+      <img src=<%=cardapio.link_imagem %> alt="..." class="img-responsive"></div>
+    </div>
+    <div class="product-details">
+      <div class="product-title"> <%= cardapio.nome%> </div>
+      <p class="product-description"> <%= cardapio.descricao%> </p>
+    </div>
+    <div class="product-price"> <%= cardapio.preco %> </div>
+    <div class="product-quantity">
+      <input type="number" value="1" min="0">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remover produto da compra
+      </button>
+    </div>
+    <div class="product-line-price">0.00</div>
+  </div>
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+    </div>
+  </div>
+
+</div>
+
+    <button class="checkout">Comprar</button>
+    <br>
+    <br>
+      <script>
+      /* Set rates + misc */
+
+      /* Set rates + misc */
+      var taxRate = 0.05;
+      var shippingRate = 15.00;
+      var fadeTime = 300;
+
+
+      /* Assign actions */
+      $('.product-quantity input').change( function() {
+        updateQuantity(this);
+      });
+
+      $('.product-removal button').click( function() {
+        removeItem(this);
+      });
+
+
+      /* Recalculate cart */
+      function recalculateCart()
+      {
+        var subtotal = 0;
+
+        /* Sum up row totals */
+        $('.product').each(function () {
+          subtotal += parseFloat($(this).children('.product-line-price').text());
+        });
+
+        /* Calculate totals */
+
+        var total = subtotal;
+
+        /* Update totals display */
+        $('.totals-value').fadeOut(fadeTime, function() {
+          $('#cart-subtotal').html(subtotal.toFixed(2));
+          $('#cart-total').html(total.toFixed(2));
+          if(total == 0){
+            $('.checkout').fadeOut(fadeTime);
+          }else{
+            $('.checkout').fadeIn(fadeTime);
+          }
+          $('.totals-value').fadeIn(fadeTime);
+        });
+      }
+
+
+      /* Update quantity */
+      function updateQuantity(quantityInput)
+      {
+        /* Calculate line price */
+        var productRow = $(quantityInput).parent().parent();
+        var price = parseFloat(productRow.children('.product-price').text());
+        var quantity = $(quantityInput).val();
+        var linePrice = price * quantity;
+
+        /* Update line price display and recalc cart totals */
+        productRow.children('.product-line-price').each(function () {
+          $(this).fadeOut(fadeTime, function() {
+            $(this).text(linePrice.toFixed(2));
+            recalculateCart();
+            $(this).fadeIn(fadeTime);
+          });
+        });
+      }
+
+
+      /* Remove item from cart */
+      function removeItem(removeButton)
+      {
+        /* Remove row from DOM and recalc cart total */
+        var productRow = $(removeButton).parent().parent();
+        productRow.slideUp(fadeTime, function() {
+          productRow.remove();
+          recalculateCart();
+        });
+      }
+      </script>
+
 </div>
   <% end %>
-  
+
     </body>
 
 </html>
