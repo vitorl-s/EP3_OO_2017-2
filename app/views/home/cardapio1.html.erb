@@ -21,27 +21,27 @@
       <img src=<%=cardapio.link_imagem %> alt="..." class="img-responsive"></div>
     </div>
 
-    
+
   <!-- Content here -->
 
     <div class="product-details">
       <div class="product-title"> <%= cardapio.nome%> </div>
       <p class="product-description"> <%= cardapio.descricao%> </p>
     </div>
-    
+
     <div class="product-price"> <%=cardapio.preco %> </div>
     <div class="product-quantity">
-      
+
       <input type="number" value="1" min="0">
     </div>
     <br>
-     
-     SubTotal R$
+
+     SubTotal (R$)
     <div class="product-line-price">0.00</div>
   </div>
   <div class="totals">
     <div class="totals-item">
-     
+
 
     </div>
 
@@ -49,7 +49,23 @@
 
 </div>
 <br>
-    <button class="checkout">Comprar</button>
+
+    <button onclick="clickAlert()">Comprar</button>
+    <% if user_signed_in? %>
+      <script>
+      function clickAlert(){
+      alert("Seu pedido foi processado com sucesso! Pague a quantia especificada no caixa para retirar seu produto");
+    }
+      </script>
+      <% end %>
+    <% if !user_signed_in? %>
+    <script>
+    function clickAlert(){
+    alert("Por favor, faça o login para efetivar seu pedido!");
+  }
+    </script>
+    <% end %>
+</div>
     <br>
     <br>
       <script>
