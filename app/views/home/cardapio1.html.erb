@@ -49,22 +49,29 @@
 
 </div>
 <br>
+    <form>
+      Local de entrega<br>
+      <input type = "text" location ="Local de entrega" > <br>
+    </form>
+    <% @pedido = false %>
+      <button onclick="clickAlert()">Comprar</button>
+      <% if user_signed_in? %>
+          <script>
+          function clickAlert(){
+          alert("Seu pedido foi processado com sucesso! Aguarde no local de entrega e pague pelo seu pedido");
+      }
+         </script>
+          <% end %>  
 
-    <button onclick="clickAlert()">Comprar</button>
-    <% if user_signed_in? %>
-      <script>
-      function clickAlert(){
-      alert("Seu pedido foi processado com sucesso! Pague a quantia especificada no caixa para retirar seu produto");
-    }
-      </script>
-      <% end %>
-    <% if !user_signed_in? %>
-    <script>
-    function clickAlert(){
-    alert("Por favor, faça o login para efetivar seu pedido!");
-  }
-    </script>
-    <% end %>
+        <% if !user_signed_in? %>
+        <script>
+          function clickAlert(){
+          alert("Por favor, faça o login para efetivar seu pedido!");
+        }
+        </script>
+        <input type="button" onclick="alert('Something')" value="Message"/>
+        <input type="button" onclick="alert('Something else')" value="Message 2" />
+          <% end %>
 </div>
     <br>
     <br>
