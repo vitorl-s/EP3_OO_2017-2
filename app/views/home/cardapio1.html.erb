@@ -20,29 +20,35 @@
     <div class="product-image">
       <img src=<%=cardapio.link_imagem %> alt="..." class="img-responsive"></div>
     </div>
+
+    
+  <!-- Content here -->
+
     <div class="product-details">
       <div class="product-title"> <%= cardapio.nome%> </div>
       <p class="product-description"> <%= cardapio.descricao%> </p>
     </div>
-    <div class="product-price"> <%= cardapio.preco %> </div>
+    
+    <div class="product-price"> <%=cardapio.preco %> </div>
     <div class="product-quantity">
+      
       <input type="number" value="1" min="0">
     </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remover produto da compra
-      </button>
-    </div>
+    <br>
+     
+     SubTotal R$
     <div class="product-line-price">0.00</div>
   </div>
   <div class="totals">
     <div class="totals-item">
-      <label>Subtotal</label>
+     
+
     </div>
+
   </div>
 
 </div>
-
+<br>
     <button class="checkout">Comprar</button>
     <br>
     <br>
@@ -126,6 +132,13 @@
       </script>
 
 </div>
+
+    <div class="product-removal">
+      <button class="remove-product">
+        Remover produto da compra
+      </button>
+    </div>
+
   <% end %>
 
     </body>
