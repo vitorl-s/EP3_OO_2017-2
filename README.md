@@ -17,6 +17,7 @@
 
     Para cadastrar o produto deve-se preencher os campos conforme o indicado na tela, sendo que nenhum campo deve ficar vazio.  
     Os produtos cadastrados aparecerão na tela do cardápio, onde poderão ser comprados caso o usuário esteja logado.  
+    O campo link da imagem deve conter apenas o endereço da imagem  
   
 ### Compra de produtos  
 
